@@ -16,5 +16,5 @@ export const handleLogout = async (req: Request): Promise<Response> => {
   headers.append('Set-Cookie',
     `refresh_token=; Path=/api/auth; HttpOnly; Secure; SameSite=Strict;Max-Age=0`
   )
-  return new Response(null, { status: 201, headers });
+  return new Response(null, { status: 204, headers });
 }
