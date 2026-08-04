@@ -1,7 +1,7 @@
 import { revokeSession } from '../session';
 
 export const handleLogout = async (req: Request): Promise<Response> => {
-  const cookiesHeader = req.headers.get('cookies') ?? '';
+  const cookiesHeader = req.headers.get('cookie') ?? '';
   const rawToken = cookiesHeader
     .split(';')
     .map(c => c.trim())
