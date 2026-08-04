@@ -16,13 +16,13 @@ const isRegisterRequest = (input: unknown): input is RegisterRequest => {
 }
 
 export const handleRegister = async (req: Request): Promise<Response> => {
-  const incommingRequest = await req.json();
-  if (!isRegisterRequest(incommingRequest)) {
+  const incomingRequest = await req.json();
+  if (!isRegisterRequest(incomingRequest)) {
     return Response.json({
       error: '不符合註冊格式',
     }, { status: 400 });
   }
-  const { email, password } = incommingRequest;
+  const { email, password } = incomingRequest;
   if (!email || !password || password.length < 8) {
     return Response.json({
       error: 'email 或密碼皆為必填，且密碼最少8碼',

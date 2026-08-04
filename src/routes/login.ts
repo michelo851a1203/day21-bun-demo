@@ -45,13 +45,13 @@ const buildRefreshCookies = (token: string): string => {
 }
 
 export const handleLogin = async (req: Request): Promise<Response> => {
-  const incommingRequest = await req.json();
-  if (!isLoginRequest(incommingRequest))
+  const incomingRequest = await req.json();
+  if (!isLoginRequest(incomingRequest))
     return Response.json({
       error: '不符合登入格式'
     }, { status: 400 })
 
-  const { email, password } = incommingRequest;
+  const { email, password } = incomingRequest;
 
   const userObj = db.query(`
     SELECT id, email, password_hash FROM users WHERE email = ?
