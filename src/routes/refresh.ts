@@ -61,7 +61,7 @@ export const handleRefresh = async (req: Request): Promise<Response> => {
       error: '未知的錯誤(型別)',
     }, { status: 500 })
 
-  const accessToken = signAccessToken({
+  const accessToken = await signAccessToken({
     sub: result.userId,
     email: user.email,
   });
